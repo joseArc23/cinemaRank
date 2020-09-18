@@ -1,0 +1,212 @@
+:root {
+    --color-charcoal: #264653;
+    --color-persian-green: #264653;
+    --color-orange:#e9c46a;
+    --color-brown:#f4a261;
+    --color-burnt:#e76f51;
+}
+
+html {
+    font-family: 'Dosis', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+/* dimensionando el contenedor */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* width: 100vw; */
+    /* fallback for old browsers */
+    background: #8E0E00;  
+    /* background: -webkit-linear-gradient(to bottom, #1F1C18, #8E0E00);  */
+    background: linear-gradient(to bottom, #1F1C18, #8E0E00); 
+}
+/* centrar un elemento horzontal y verticalmente */
+.content {
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    border-radius: 10px;
+    background-color: #fff;
+    /*box-shadow: difHorizontal difVertical desenfoque amplitud color*/
+    /*ejemplo*/
+    /* box-shadow: 5px 5px 10px #000;   */
+    /*sobra mas realista*/
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    /* responsive */
+    overflow: auto;
+    padding: 1em;
+}
+
+/* td es para los table data que son inline */
+td {
+    display: block;
+    width: auto;
+}
+/* th los escondemos ya que no hacen falta */
+th {
+    display: none;
+}
+/* seleccionamos los numeros 1,2,3,4,5 */
+td:nth-of-type(1) {
+    /* border-radius: 5px; */
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+
+/* title es clase de h1 */
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    /* background-color: var(--color-brown); */
+}
+
+/* espacio entre lineras en las paginas de los cines */
+.paragraph {
+    line-height: 1.8em;
+    font-weight: 200;
+}
+
+.address {
+    color: var(--color-burnt);
+    text-shadow: 2px 2px 1px var(--color-orange);
+    font-weight: 600;
+    font-size: 1.4em;
+    display: inline-block;
+    margin-top: 1em;
+}
+
+/* estilizando tablas */
+
+.table {
+    width: 100%;
+    border-spacing: 0;    /*quita los bordes de la tabla para que esten pegados*/
+}
+/* los bordes de las celdas quedan con almenos 2px en chrome */
+
+.table th,
+.table td {
+    padding: 1em;
+    text-align: center;
+    
+}
+/* vamos a dar color a los table rows con una pseudoclase :nth-child() */
+/* nos permite selecionar via un numero o formula a los hijos de un padre */
+.table tr:nth-child(even) { /*even y odd || pares y impares*/
+    background-color: var(--color-burnt);
+}
+/* cambia el color de las estrellas */
+.fa-star {
+    color: #ffc400;
+}
+
+/* td {
+    border: 1px solid black
+} */
+/* ------------------------------- */
+
+/*bordes y sombras, algunas clases son de las paginas secundarias*/
+
+.title-item {
+    /* shorthand de border */
+    border-bottom: 3px solid var(--color-charcoal);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    /* border-bottom-style: solid;
+    border-width: 7px; */
+    padding-bottom: 1em;
+    padding-top: .3em;
+    font-size: 2em;
+}
+/*sombras estan en la clase .content*/
+.position {
+    background-color: var(--color-charcoal);
+    color: white;
+    padding: .5em;
+    border-radius: 5px;
+    margin-right: .5em;
+}
+
+/* posisiones abosolute, relative, sticky fixed*/
+
+.actions {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+}
+
+.close {
+    /* para <a> display por defecto es inline, para que agarre los width y height cambia a inline-block */
+    display: inline-block;  /*not sure but flex overwrites this property - maybe this can be a fallback*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    font-weight: 600;
+    color: white;
+    background-color: var(--color-charcoal);
+}
+
+/* animaciones */
+/* animate.css es una libreria con a nimaciones predefinidas */
+/* con el uso de clases podemos añadir animaciones */
+
+
+/* imagen */
+.main-image {
+    float: left;    /*el texto va a la derecha*/
+    height: 250px;
+    margin-right: 1.2em;
+}
+
+/* responsive design */
+
+img {
+    max-width: 100%;  /*siempre para imagenes*/
+}
+
+/*para pantallas chicas*/
+/*media queires para dispositivos grandes*/
+@media (min-width: 850px) {
+    th {
+        display: table-cell;
+    }
+    td {
+        width: auto;
+        display: table-cell;
+    }
+    
+    .table th,
+    .table td {
+        text-align: left;
+    }
+
+
+    .content {
+    padding: 2em;
+    }
+    td:nth-of-type(1) {
+        font-size: 1em;
+        color: black;
+    }
+
+
+}
+
+/* para pantallas mas grandes a 550px*/
+@media (min-height: 550px) {
+    .content {
+        height: 500px;
+    }
+
+}
